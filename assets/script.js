@@ -8,29 +8,13 @@ var cityName = "London";
 var queryURL =
   "https://api.openweathermap.org/data/2.5/forecast?lat=57&lon=-2.15&cnt=3&appid=" +
   apiKey;
+var coords;
 
-// function showWeather() {
-//   let xhr = new XMLHttpRequest();
-
-//   xhr.open("GET", queryURL, true);
-
-//   xhr.onload = function () {
-//     if (xhr.status == 200) {
-//       console.log("success");
-//       let result = this.response;
-//       console.log(result);
-//     }
-//   };
-//   xhr.send();
-// }
-
-// showWeather();
-
-
+// document ready function
 
 $(document).ready(function () {
-  
- // Search button, when clicked adds the city name to the history list
+
+  // Search button, when clicked adds the city name to the history list
 
   searchButton.addEventListener("click", function (event) {
     event.preventDefault();
@@ -42,17 +26,26 @@ $(document).ready(function () {
     $("li").addClass("cities");
     $("button").addClass("citiesButton");
 
-    function test() {
+    //calling the OpenWeather API 
 
-      $.ajax({
-          method: 'GET',
-          url: 'http://api.openweathermap.org/geo/1.0/direct?q=' + cityName + '&limit=1&appid=' + apiKey
-      }).then(function (response) {
-          console.log(response);
-      });
-  }
-  test();
+    $.getJSON(
+      "http://api.openweathermap.org/geo/1.0/direct?q=" +
+        cityName +
+        "&limit=1&appid=" +
+        apiKey,
+      function (data) {
+
+      // function to get the latitude and logitude from the city name
+
+        function latLon() {
+          coords = [data[0].lat, data[0].lon];
+          console.log(coords);
+          return;
+        }
+        latLon();
+      }
+    );
   });
-  });
 
-
+  
+});
