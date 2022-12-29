@@ -59,7 +59,7 @@ $(document).ready(function () {
               coords[0] +
               "&lon=" +
               coords[1] +
-              "&cnt=1&appid=" +
+              "&cnt=40&appid=" +
               apiKey,
             function (response) {
               console.log(response);
@@ -77,6 +77,14 @@ $(document).ready(function () {
                   
                   
                   );
+
+                  //Added weather icon
+                  
+                  var iconcode = response.list[0].weather[0].icon;
+                  var iconurl = "http://openweathermap.org/img/wn/" + iconcode + "@2x" + ".png";
+                  $(today).append(`<div id="icon">` + ` <img id="wicon" src="${iconurl}" alt="Weather icon">` + `</div>`)
+                  console.log(iconurl);
+                  
                   forecast.append(
                     "<p>" + "5 day forcast" + "</p>"
                   )
@@ -87,7 +95,7 @@ $(document).ready(function () {
           getWeather();
         }
         );
-              forcast.text("It worked");
+              forecast.text("It worked");
   });
 
   //Generated history list buttons when click display the weather for that city
