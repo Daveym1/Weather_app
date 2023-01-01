@@ -41,5 +41,29 @@
     background-color:#FFFFFF;
 }
 
+#today {
+    background-color: aqua;
+}
+
+.forecast {
+    
+    border: 1px solid #111;
+    background-color: darkgoldenrod;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.forecast1,
+.forecast2,
+.forecast3,
+.forecast4,
+.forecast5 {
+    border: 1px solid black;
+    padding: 1rem;
+}
+
+
 
 
