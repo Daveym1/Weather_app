@@ -2,6 +2,11 @@
     box-sizing: border-box;
 }
 
+body {
+    background-image: url("/assets/images/background.jpeg") ;
+    background-size: cover;
+}
+
 #search-button {
     background-color:lightskyblue;
     margin: 1rem;
@@ -42,13 +47,26 @@
 }
 
 #today {
-    background-color: aqua;
+    background-color: rgba(81, 81, 81, 0.5);
+    
+    color: #FFFFFF;
+}
+
+#icon {
+    display: flex;
+    margin-left: 1rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;;
+    max-width: 10%;
+    justify-content: center;
+    border-radius: 100px 100px;
 }
 
 .forecast {
     
     border: 1px solid #111;
-    background-color: darkgoldenrod;
+    background-color: rgba(81, 81, 81, 0.5);
+    color: #FFFFFF;
     display: flex;
     flex-direction: row;
     align-items: center;
