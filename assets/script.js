@@ -18,10 +18,10 @@ var cities = $(".cities");
 var today = $("#today");
 var forecast = $("#forecast");
 var historyCityList = [];
-var citiesHistory = localStorage.getItem("historyCityList");
-  var savedCitites = JSON.parse(citiesHistory);
+// var citiesHistory = localStorage.getItem("historyCityList");
+//   var savedCities = JSON.parse(citiesHistory);
 
-  console.log(citiesHistory);
+//   console.log(savedCities);
 
 
   
@@ -32,8 +32,25 @@ var citiesHistory = localStorage.getItem("historyCityList");
 
 $(document).ready(function () {
 
-  // for (var i = 0; i < savedCitites.length; i++) {
-  //   historyList.append(`<li><button>${savedCitites[i]}</button></li>`);
+
+   // Iterate over the keys in local storage
+   for (var i = 0; i < localStorage.length; i++) {
+    // Get the key and value
+    var key = localStorage.key(i);
+    var value = localStorage.getItem(key);
+
+    historyList.append(`<li><button>${value}</button></li>`);
+    $("li").addClass("cities");
+
+    $("li.cities > button").addClass("citiesButton");
+   }
+
+    console.log(value)
+
+  
+
+  // for (var i = 0; i < citiesHistory.length; i++) {
+  //   historyList.append(`<li><button>${savedCities[i]}</button></li>`);
   //   $("li").addClass("cities");
 
   //   $("li.cities > button").addClass("citiesButton");
@@ -176,12 +193,12 @@ $(document).ready(function () {
         console.log(historyCityList);
 
           // Iterate over the list items
-  for (var i = 0; i < historyList.children.length; i++) {
+  for (var i = 0; i < historyCityList.length; i++) {
     // Get the list item
-    var listItem = historyList.children[i];
+    var listItem = historyCityList[i];
 
     // Set the list item to local storage
-    localStorage.setItem("historyCityList" + (i + 1), JSON.stringify(cityName));
+    localStorage.setItem("historyCityList" + (i + 1), listItem);
   }
         // localStorage.setItem("historyCityList", JSON.stringify(cityName));
             
