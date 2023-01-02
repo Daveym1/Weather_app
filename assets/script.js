@@ -4,7 +4,7 @@ var searchHistory = document.getElementById("history");
 var historyButton = $("<button>");
 var historyList = $("#history-list");
 var apiKey = "42eadeef9d5a4dba9f2ba031ca03c827";
-var cityName = "London";
+var cityName;
 var queryURL =
   "https://api.openweathermap.org/data/2.5/forecast?lat=57&lon=-2.15&cnt=3&appid=" +
   apiKey;
@@ -26,6 +26,11 @@ var historyCityList = [];
 // document ready function
 
 $(document).ready(function () {
+
+  if (!localStorage.getItem('historyCityList1')) {
+    localStorage.clear();
+  }
+
   // Iterate over the keys in local storage
   for (var i = 0; i < localStorage.length; i++) {
     // Get the key and value
