@@ -252,8 +252,8 @@ $(document).ready(function () {
       }
     
   
-    
-  //Generated history list buttons when click display the weather for that city
+  });
+  //Generated history list buttons when clicked display the weather for that city
 
   $(document).on("click", ".citiesButton", function (event) {
     // today.empty();
@@ -430,4 +430,4 @@ $(document).ready(function () {
     );
   });
   
-})})
+});
